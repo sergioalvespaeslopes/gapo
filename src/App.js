@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Corrigindo a importação
 
-function App() {
+import Home from "./pages/Home";
+import Inbox from "./pages/Inbox";
+import Drafts from "./pages/Drafts";
+import SendEmail from "./pages/SendEmail";
+import Spam from "./pages/Spam";
+import Starred from "./pages/Starred";
+import Trash from "./pages/Trash";
+import AllMail from "./pages/AllMail";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> {/* Corrigindo o nome para BrowserRouter */}
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/inbox" exact element={<Inbox />} />
+        <Route path="/drafts" exact element={<Drafts />} />
+        <Route path="/sendemail" exact element={<SendEmail />} />
+        <Route path="/spam" exact element={<Spam />} />
+        <Route path="/starred" exact element={<Starred />} />
+        <Route path="/trash" exact element={<Trash />} />
+        <Route path="/allmail" exact element={<AllMail />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
