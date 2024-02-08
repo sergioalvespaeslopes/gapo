@@ -3,7 +3,7 @@ import Sidenav from '../Sidenav';
 import SimpleContainer from '../SimpleContainer';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
-export default function Inbox() {
+export default function MapaJammer() {
   const [dadosDoBanco, setDadosDoBanco] = useState([]);
 
   useEffect(() => {

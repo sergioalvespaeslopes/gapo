@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Corrigindo a importação
 
 import Home from "./pages/Home";
-import Inbox from "./pages/Inbox";
+import MapaJammer from "./pages/MapaJammer";
 import Drafts from "./pages/Drafts";
 import SendEmail from "./pages/SendEmail";
 import Spam from "./pages/Spam";
@@ -15,7 +15,7 @@ export default function App() {
     <Router> {/* Corrigindo o nome para BrowserRouter */}
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/inbox" exact element={<Inbox />} />
+        <Route path="/MapaJammer" exact element={<MapaJammer />} />
         <Route path="/drafts" exact element={<Drafts />} />
         <Route path="/sendemail" exact element={<SendEmail />} />
         <Route path="/spam" exact element={<Spam />} />

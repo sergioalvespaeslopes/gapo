@@ -9,16 +9,13 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'; // Importar o ícone de seta para a esquerda
-import IconButton from '@mui/material/IconButton'; // Importar o componente IconButton
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-const drawerWidth = 240;
+
+const drawerWidth = 170;
 
 export default function Principal() {
   const [dadosDoBanco, setDadosDoBanco] = useState([]);
@@ -72,7 +69,7 @@ export default function Principal() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-           Gapo
+            Gapo
           </Typography>
         </Toolbar>
       </AppBar>
@@ -96,12 +93,12 @@ export default function Principal() {
         </Toolbar>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'SendEmail', 'Drafts'].map((text, index) => (
+          {['MapaJammer', 'Starred', 'SendEmail', 'Drafts'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton component={Link} to={text === 'Starred' ? '/starred' : `/${text.toLowerCase()}`}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
+              <ListItemButton
+                component={Link}
+                to={text === 'MapaJammer' ? '/mapajammer' : `/${text.toLowerCase()}`}
+              >
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
@@ -112,9 +109,6 @@ export default function Principal() {
           {['AllMail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton component={Link} to={`/${text.toLowerCase()}`}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>

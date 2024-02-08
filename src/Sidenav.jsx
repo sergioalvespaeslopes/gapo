@@ -19,8 +19,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-
-const drawerWidth = 240;
+const drawerWidth = 170;
 
 export default function Sidenav() {
   const [dadosDoBanco, setDadosDoBanco] = useState([]);
@@ -61,39 +60,40 @@ export default function Sidenav() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
-        position="fixed"
-        sx={{ 
-          width: `calc(100% - ${open ? drawerWidth : 0}px)`,
-          ml: open ? `${drawerWidth}px` : '0px',
-          transition: 'width 0.2s',
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={open ? handleDrawerClose : handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            {open ? <ChevronLeftIcon /> : <MenuIcon />}
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-           Gapo
-          </Typography>
-        </Toolbar>
-      </AppBar>
+  position="fixed"
+  sx={{ 
+    width: `calc(5% - ${open ? drawerWidth : 0}px)`,
+    ml: open ? `${drawerWidth}px` : '0px',
+    transition: 'width 0.2s',
+  }}
+>
+  <Toolbar>
+    <IconButton
+      color="inherit"
+      aria-label="open drawer"
+      onClick={open ? handleDrawerClose : handleDrawerOpen}
+      edge="start"
+      sx={{ mr: 2, ...(open && { display: 'none' }) }}
+    >
+      {!open ? <ChevronLeftIcon /> : <MenuIcon />}
+    </IconButton>
+    <Typography variant="h6" noWrap component="div">
+    
+    </Typography>
+  </Toolbar>
+</AppBar>
+
       <Drawer
         sx={{
-          width: drawerWidth,
+      
           flexShrink: 0,
           '& .MuiDrawer-paper': {
-            width: drawerWidth,
+          
             boxSizing: 'border-box',
           },
         }}
         variant="persistent"
-        anchor="left"
+        anchor="right"
         open={open}
       >
         <Toolbar>
@@ -103,12 +103,12 @@ export default function Sidenav() {
         </Toolbar>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'SendEmail', 'Drafts'].map((text, index) => (
+          {['Starred', 'SendEmail', 'Drafts'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton component={Link} to={text === 'Starred' ? '/starred' : `/${text.toLowerCase()}`}>
-                <ListItemIcon>
+              { /* <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
+                </ListItemIcon> */}
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
@@ -119,9 +119,9 @@ export default function Sidenav() {
           {['AllMail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton component={Link} to={`/${text.toLowerCase()}`}>
-                <ListItemIcon>
+              { /* <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
+          </ListItemIcon> */}
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
@@ -129,26 +129,27 @@ export default function Sidenav() {
         </List>
       </Drawer>
       <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-      >
+  component="main"
+  sx={{ flexGrow: 1, bgcolor: 'background.default', p: 0 }} // Ajuste o valor do padding para 1
+>
         <Toolbar />
         <Typography paragraph>
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
-                <TableRow>
-                  <TableCell>Placa</TableCell>
-                  <TableCell>Data Rec</TableCell>
-                  <TableCell>Data Jammer</TableCell>
-                  <TableCell>Qtde</TableCell>
-                  <TableCell>VELOCIDADE</TableCell>
-                  <TableCell>Status</TableCell>
-                  <TableCell>Vcc</TableCell>
-                  <TableCell>Endereço</TableCell>
-                  <TableCell>Coord</TableCell>
-                </TableRow>
-              </TableHead>
+         
+  <TableRow style={{ backgroundColor: '#f5f5f5' }}> {/* Alteração para aplicar o estilo diretamente */}
+    <TableCell>Placa</TableCell>
+    <TableCell>Data Rec</TableCell>
+    <TableCell>Data Jammer</TableCell>
+    <TableCell>Qtde</TableCell>
+    <TableCell>VELOCIDADE</TableCell>
+    <TableCell>Status</TableCell>
+    <TableCell>Vcc</TableCell>
+    <TableCell>Endereço</TableCell>
+    <TableCell>Coord</TableCell>
+  </TableRow>
+</TableHead>
               <TableBody>
                 {dadosDoBanco.map((item, index) => (
                   <React.Fragment key={index}>

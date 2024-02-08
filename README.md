@@ -7,6 +7,8 @@
 1. Copy the files into your project, or one of the [example projects](https://github.com/mui/material-ui/tree/master/examples).
 2. Make sure your project has the required dependencies: @mui/material, @mui/icons-material, @emotion/styled, @emotion/react, recharts.
 3. Import and use the `Dashboard` component.
+4. Import and use the `react-router-dom`.
+5. Import and use the `@google/markerclusterer`.
 
 ## Demo
 

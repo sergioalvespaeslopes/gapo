@@ -14,7 +14,7 @@ class SimpleContainer extends Component {
     this.service = null;
     this.initialCenter = { lat: -23.594754, lng: -46.608019 }; // Coordenadas iniciais do mapa
     this.state = {
-      counter: 60, // Inicia o contador em 60 segundos
+      counter:  60, // Inicia o contador em 60 segundos
       dadosDoBanco: [], // Inicia os dados do banco como uma array vazia
       mapType: 'roadmap', // Tipo inicial do mapa
     };
@@ -52,7 +52,8 @@ class SimpleContainer extends Component {
           }
         }
       );
-    }, 1000);
+    }, 120000/60); // Intervalo de 1000 milissegundos (1 segundo)
+    
   }
 
   componentWillUnmount() {
@@ -162,28 +163,30 @@ class SimpleContainer extends Component {
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
-            paddingBottom: '30px',
           }}
         >
-          <div
+          <Box
             ref={this.mapRef}
-            style={{
+            sx={{
               flex: 1,
               backgroundColor: '#fff',
               position: 'relative',
-              height: '100%',
               width: '100%',
+             // Adiciona margem inferior ao mapa
             }}
           />
           <Box
             sx={{
-              height: '30px',
+           
               bgcolor: '#fff',
               color: '#000',
               fontSize: '1rem',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              position: 'fixed',
+              bottom: 0, // Posiciona o temporizador na parte inferior
+              width: '100%',
             }}
           >
             {String(this.state.counter).padStart(2, '0')}:00
